@@ -1,0 +1,31 @@
+.navigation {
+  background-color: #4056A1;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1em 0 1em;
+  position: relative;
+}
+
+.logo {
+  font-family: Bungee;
+  color: white;
+}
+
+.new-tweet {
+  color: white;
+}
+
+.arrow-button {
+  color: red;
+  display: flex;
+  justify-content: center;
+}
+
+.arrow-button {
+  color: red;
+  display: flex;
+  justify-content: center;
+}
+

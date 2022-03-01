@@ -1,0 +1,18 @@
+.profile {
+  height: 400px;
+  width: 100%;
+  display: inline-block;
+  background-color: orange;
+  background-image: url(http://www.transparenttextures.com/patterns/3px-tile.png);
+
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+}
+
+header h2 {
+  text-align: center;
+  color: white;
+}
