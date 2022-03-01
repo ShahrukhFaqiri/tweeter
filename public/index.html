@@ -62,13 +62,13 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
+        <!-- <h2>Compose Tweet</h2> -->
         <form action="/tweets/" method="POST">
-          <label for="tweet-text">What are you humming about?</label>
+          <label for="tweet-text" class="gray-color tweet-label">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
-          <div>
-            <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
+          <div class="counter-button">
+            <button id="tweet-button" type="submit">Tweet</button>
+            <output name="counter" class="counter gray-color" for="tweet-text">140</output>
           </div>
         </form>
       </section>
