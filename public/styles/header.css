@@ -4,10 +4,13 @@
   display: inline-block;
   background-color: orange;
   background-image: url(http://www.transparenttextures.com/patterns/3px-tile.png);
-
 }
 
+body { padding-top: 100px; }
+
+
 .avatar {
+  padding-top: 20px;
   display: flex;
   justify-content: center;
 }
