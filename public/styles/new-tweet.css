@@ -37,7 +37,7 @@
   color: gray;
 }
 
-.counter{
+.counter {
   font-family: Bungee;
 }
 
@@ -49,7 +49,7 @@
   color: red;
 }
 
-.new-tweet{
+.new-tweet {
   padding-bottom: 40px;
 }
 
@@ -80,10 +80,10 @@
   font-size: medium;
 }
 
-.user-tweet{
+.user-tweet {
   border-bottom: 4px solid darkgray;
 }
 
 .hover-icon:hover {
-  color: orange
+  color: orange;
 }

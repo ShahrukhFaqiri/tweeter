@@ -6,8 +6,9 @@
   background-image: url(http://www.transparenttextures.com/patterns/3px-tile.png);
 }
 
-body { padding-top: 100px; }
-
+body {
+  padding-top: 100px;
+}
 
 .avatar {
   padding-top: 20px;
