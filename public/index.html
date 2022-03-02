@@ -64,14 +64,55 @@
       <section class="new-tweet">
         <!-- <h2>Compose Tweet</h2> -->
         <form action="/tweets/" method="POST">
-          <label for="tweet-text" class="gray-color tweet-label">What are you humming about?</label>
+          <label for="tweet-text" class="gray-color tweet-label"
+            >What are you humming about?</label
+          >
           <textarea name="text" id="tweet-text"></textarea>
           <div class="counter-button">
             <button id="tweet-button" type="submit">Tweet</button>
-            <output name="counter" class="counter gray-color" for="tweet-text">140</output>
+            <output
+              id="counter"
+              name="counter"
+              class="counter gray-color"
+              for="tweet-text"
+              >140</output
+            >
           </div>
         </form>
       </section>
+
+      <section class="tweets">
+        <article>
+          <header>
+            <div class="header">
+              <div>
+                <img src="/images/logo.png" width="30" height="30" />
+                <label>Shahrukh Faqiri</label>
+              </div>
+              <label>@ShaFaqiri</label>
+            </div>
+          </header>
+          <div class="user-tweet">
+            <p>Hello World!</p>
+          </div>
+          <footer>
+            <div class="footer">
+              <span>10 days ago</span>
+              <div>
+                <div class="icons">
+                  <i class="fa-solid fa-flag hover-icon"></i>
+                  <i class="fa-solid fa-retweet hover-icon"></i>
+                  <i class="fa-solid fa-heart hover-icon"></i>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </article>
+      </section>
     </main>
+    <script
+      type="text/javascript"
+      src="/scripts/composer-char-counter.js"
+    ></script>
   </body>
 </html>

@@ -44,3 +44,46 @@
 .tweet-label {
   font-size: 25px;
 }
+
+.exeeded-char-limit {
+  color: red;
+}
+
+.new-tweet{
+  padding-bottom: 40px;
+}
+
+.tweets {
+  padding: 40px;
+  border: 5px;
+  border-color: darkgray;
+  border-style: solid;
+}
+.tweets:hover {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+}
+
+.logo-size {
+  max-width: 50%;
+  max-height: 25%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer {
+  display: flex;
+  padding-top: 10px;
+  justify-content: space-between;
+  font-size: medium;
+}
+
+.user-tweet{
+  border-bottom: 4px solid darkgray;
+}
+
+.hover-icon:hover {
+  color: orange
+}
