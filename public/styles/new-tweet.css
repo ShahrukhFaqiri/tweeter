@@ -53,17 +53,6 @@
   padding-bottom: 40px;
 }
 
-.tweets {
-  /* padding: 40px;
-  border: 5px;
-  border-color: darkgray;
-  border-style: solid; */
-}
-
-.tweets:hover {
-  /* box-shadow: 5px 5px 0px 0px lightgray; */
-}
-
 .logo-size {
   max-width: 50%;
   max-height: 25%;
