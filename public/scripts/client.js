@@ -18,6 +18,7 @@ $(() => {
     })
       .then(function () {
         console.log('Ajax Post Successful.');
+        $('.form-class').trigger('reset');
         loadTweets();
       })
       .catch(function (error) {
