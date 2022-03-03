@@ -7,9 +7,9 @@ $(() => {
     event.preventDefault();
     let formData = $(this).serialize();
     let letCount = formData.slice(5).length;
-    if (letCount > 140 || letCount === 0) {
-      return alert('Invalid Input', letCount);
-    }
+    if (letCount === 0) {
+      return alert('Please fill out the form.')
+    } 
     $.ajax({
       url: '/tweets',
       method: 'POST',
@@ -18,6 +18,7 @@ $(() => {
       .then(function () {
         console.log('Ajax Post Successful.');
         $('.form-class').trigger('reset');
+        // $('#error').addClass('hidden')
         loadTweets();
       })
       .catch(function (error) {
@@ -39,6 +40,7 @@ const loadTweets = () => {
       console.log(`There was an error with your request`, err);
     });
 };
+
 
 // Looping through database, passing and appending createTweetElement to HTML
 const renderTweets = (tweets) => {

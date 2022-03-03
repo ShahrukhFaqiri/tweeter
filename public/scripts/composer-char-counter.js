@@ -9,6 +9,9 @@ $(() => {
     letCount < 0
       ? $counter.addClass('exeeded-char-limit')
       : $counter.removeClass('exeeded-char-limit');
+    //Adds class based on if the character limit is exceeded or not
+    letCount < 0 ? $('#error').removeClass('hidden') : $('#error').addClass('hidden');
+
     $counter.text(letCount);
   });
 });
