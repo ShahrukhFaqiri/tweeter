@@ -4,10 +4,6 @@
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-.hidden {
-  display: none;
-}
-
 #tweet-button {
   font-family: Bungee;
   color: white;
@@ -115,9 +111,9 @@
   box-shadow: 5px 5px 0px 0px lightsteelblue;
 }
 
-.error{
-  color: #D8000C;
-  background-color: #FFBABA;
+.error {
+  color: #d8000c;
+  background-color: #ffbaba;
   background-image: url('https://i.imgur.com/GnyDvKN.png');
   border-radius: 20px;
   margin: 10px 0px;
@@ -125,4 +121,24 @@
   background-repeat: no-repeat;
   background-position: 10px center;
   width: 50%;
+}
+
+.hidden {
+  display: none;
+}
+
+.error-zero {
+  color: #9f6000;
+  background-color: #feefb3;
+  background-image: url('https://i.imgur.com/Z8q7ww7.png');
+  border-radius: 20px;
+  margin: 10px 0px;
+  padding: 15px 10px 15px 50px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  width: 50%;
+}
+
+.hidden-zero {
+  display: none;
 }

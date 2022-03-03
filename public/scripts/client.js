@@ -5,24 +5,34 @@ $(() => {
   // Ajax POST request from form to DB
   $('.form-class').on('submit', function (event) {
     event.preventDefault();
-    let formData = $(this).serialize();
-    let letCount = formData.slice(5).length;
-    if (letCount === 0) {
-      return alert('Please fill out the form.')
-    } 
+    let formData = $(this).find('textarea').val();
+    console.log(`form data`, formData);
+    let letCount = formData.length;
+    console.log(`Outside:`, letCount);
+    if(letCount > 140){
+      return false;
+    }
+    if(letCount <= 0){
+      $('#error-zero').removeClass('hidden-zero');
+      return false;
+    }
+    let serializedData = $(this).find('textarea').serialize();
     $.ajax({
       url: '/tweets',
       method: 'POST',
-      data: formData,
+      data: serializedData,
     })
       .then(function () {
-        console.log('Ajax Post Successful.');
-        $('.form-class').trigger('reset');
-        // $('#error').addClass('hidden')
-        loadTweets();
+        if (letCount <= 140) {
+          console.log('Ajax Post Successful.');
+          $('.form-class').trigger('reset');
+          $('#counter').html("140");
+          $('#error-zero').addClass('hidden-zero');
+          loadTweets();
+        }
       })
-      .catch(function (error) {
-        console.log(`There was an error`, error);
+      .catch(function (err) {
+        console.log(letCount, `Error was caught, user has been warned`, err)
       });
   });
 });
@@ -40,7 +50,6 @@ const loadTweets = () => {
       console.log(`There was an error with your request`, err);
     });
 };
-
 
 // Looping through database, passing and appending createTweetElement to HTML
 const renderTweets = (tweets) => {
@@ -67,7 +76,7 @@ const createTweetElement = (data) => {
         <div>
           <img src="${escape(info.avatars)}" />
           <span class="user-identity">
-            <label id="display-name">${info.name}</label>
+            <label id="display-name">${escape(info.name)}</label>
             <label class="grayed-out">${escape(info.handle)}</label>
           </span>
       </div>
@@ -77,7 +86,7 @@ const createTweetElement = (data) => {
     </div>
     <footer>
       <div class="footer">
-        <span>${timeago.format(data.created_at)}</span>
+        <span>${escape(timeago.format(data.created_at))}</span>
         <div>
           <div class="icons">
             <i class="fa-solid fa-flag hover-icon"></i>
