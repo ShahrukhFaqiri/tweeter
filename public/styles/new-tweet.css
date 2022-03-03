@@ -54,13 +54,14 @@
 }
 
 .tweets {
-  padding: 40px;
+  /* padding: 40px;
   border: 5px;
   border-color: darkgray;
-  border-style: solid;
+  border-style: solid; */
 }
+
 .tweets:hover {
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+/* box-shadow: 5px 5px 0px 0px lightgray; */
 }
 
 .logo-size {
@@ -87,3 +88,36 @@
 .hover-icon:hover {
   color: orange;
 }
+
+.grayed-out{
+  color: lightgray;
+}
+
+.header div {
+  width: 100%;
+  /* padding: 20px; */
+  display: flex;
+  align-items: center;
+}
+
+.user-identity {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#display-name{
+  padding-left: 20px;
+}
+
+#tweet-card {
+  margin-top: 15px;
+  padding: 40px;
+  border: 5px;
+  border-color: darkgray;
+  border-style: solid;
+}
+
+#tweet-card:hover {
+  box-shadow: 5px 5px 0px 0px lightgray;
+  }
