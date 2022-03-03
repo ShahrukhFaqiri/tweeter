@@ -1,11 +1,3 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded <span>${timeago.format(data.created_at)}</span>
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
-// Test / driver code (temporary). Eventually will get this from the server.
-
 $(() => {
   const data = [
     {
@@ -34,9 +26,8 @@ $(() => {
 
   const renderTweets = (tweets) => {
     for (let tweet of tweets) {
-      console.log(tweet)
       // $(createTweetElement(tweet)).appendTo('.tweets');
-      $('.tweets').append(createTweetElement(tweet))
+      $('.tweets').append(createTweetElement(tweet));
     }
   };
 
@@ -72,9 +63,5 @@ $(() => {
     return $tweet;
   };
 
-  // const $tweet = createTweetElement(tweetData);
   renderTweets(data);
-  // // Test / driver code (temporary)
-  // console.log($tweet); // to see what it looks like
-  // $('#tweets').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
 });

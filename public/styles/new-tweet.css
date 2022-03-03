@@ -61,7 +61,7 @@
 }
 
 .tweets:hover {
-/* box-shadow: 5px 5px 0px 0px lightgray; */
+  /* box-shadow: 5px 5px 0px 0px lightgray; */
 }
 
 .logo-size {
@@ -89,7 +89,7 @@
   color: orange;
 }
 
-.grayed-out{
+.grayed-out {
   color: lightgray;
 }
 
@@ -106,7 +106,7 @@
   width: 100%;
 }
 
-#display-name{
+#display-name {
   padding-left: 20px;
 }
 
@@ -120,4 +120,4 @@
 
 #tweet-card:hover {
   box-shadow: 5px 5px 0px 0px lightgray;
-  }
+}
