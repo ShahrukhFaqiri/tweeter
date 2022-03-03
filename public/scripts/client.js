@@ -1,4 +1,30 @@
 $(() => {
+  loadTweets();
+  
+  // Ajax POST request from form to DB
+  $('.form-class').on('submit', function (event) {
+    event.preventDefault();
+    let formData = $(this).serialize();
+    let letCount = formData.slice(5).length;
+
+    if (letCount > 140 || letCount === 0) {
+      return alert('Invalid Input', letCount);
+    }
+
+    $.ajax({
+      url: '/tweets',
+      method: 'POST',
+      data: formData,
+    })
+      .then(function () {
+        console.log('Ajax Post Successful.');
+        loadTweets();
+      })
+      .catch(function (error) {
+        console.log(`There was an error`, error);
+      });
+  });
+});
 
   //Loading Tweets DB
   const loadTweets = () => {
@@ -6,71 +32,57 @@ $(() => {
       url: '/tweets',
       method: 'GET',
       data: $(this).serialize(),
-    }).then((res) => {
-      renderTweets(res);
-    });
+    })
+      .then((res) => {
+        renderTweets(res);
+      })
+      .catch((err) => {
+        console.log(`There was an error with your request`, err);
+      });
   };
 
-  loadTweets();
+// Looping through database, passing and appending createTweetElement to HTML
+const renderTweets = (tweets) => {
+  for (let tweet of tweets) {
+    // $(createTweetElement(tweet)).appendTo('.tweets');
+    $('.tweets').prepend(createTweetElement(tweet));
+  }
+};
 
-  // Looping through database, passing and appending createTweetElement to HTML
-  const renderTweets = (tweets) => {
-    for (let tweet of tweets) {
-      // $(createTweetElement(tweet)).appendTo('.tweets');
-      $('.tweets').append(createTweetElement(tweet));
-    }
-  };
-
-  // Call back for RenderTweet to make Dynamic Data
-  const createTweetElement = (data) => {
-    let info = data.user;
-    let $tweet = `  
-    <article id="tweet-card">
-      <header>
-        <div class="header">
-          <div>
-            <img src="${info.avatars}" />
-            <span class="user-identity">
-              <label id="display-name">${info.name}</label>
-              <label class="grayed-out">${info.handle}</label>
-            </span>
-        </div>
-      </header>
-      <div class="user-tweet">
-        <p>${data.content.text}</p>
+ // Call back for RenderTweet to make Dynamic Data
+ const createTweetElement = (data) => {
+  let info = data.user;
+  let $tweet = `  
+  <article id="tweet-card">
+    <header>
+      <div class="header">
+        <div>
+          <img src="${info.avatars}" />
+          <span class="user-identity">
+            <label id="display-name">${info.name}</label>
+            <label class="grayed-out">${info.handle}</label>
+          </span>
       </div>
-      <footer>
-        <div class="footer">
-          <span>${timeago.format(data.created_at)}</span>
-          <div>
-            <div class="icons">
-              <i class="fa-solid fa-flag hover-icon"></i>
-              <i class="fa-solid fa-retweet hover-icon"></i>
-              <i class="fa-solid fa-heart hover-icon"></i>
-            </div>
+    </header>
+    <div class="user-tweet">
+      <p>${data.content.text}</p>
+    </div>
+    <footer>
+      <div class="footer">
+        <span>${timeago.format(data.created_at)}</span>
+        <div>
+          <div class="icons">
+            <i class="fa-solid fa-flag hover-icon"></i>
+            <i class="fa-solid fa-retweet hover-icon"></i>
+            <i class="fa-solid fa-heart hover-icon"></i>
           </div>
         </div>
-      </footer>
-  </article>`;
-    return $tweet;
-  };
+      </div>
+    </footer>
+</article>`;
+  return $tweet;
+};
 
-  // Ajax POST request from form to DB
-  $('.form-class').on('submit', function (event) {
-    event.preventDefault();
-    $.ajax({
-      url: '/tweets',
-      method: 'POST',
-      data: $(this).serialize(),
-    })
-      .then(function () {
-        console.log('Ajax Post Successful.');
-      })
-      .catch(function (error) {
-        console.log(`There was an error`, error);
-      });
-  });
-});
 
 /* 
 
