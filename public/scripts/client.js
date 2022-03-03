@@ -1,28 +1,17 @@
 $(() => {
-  const data = [
-    {
-      user: {
-        name: 'Newton',
-        avatars: 'https://i.imgur.com/73hZDYK.png',
-        handle: '@SirIsaac',
-      },
-      content: {
-        text: 'If I have seen further it is by standing on the shoulders of giants',
-      },
-      created_at: 1461116232227,
-    },
-    {
-      user: {
-        name: 'Descartes',
-        avatars: 'https://i.imgur.com/nlhLi3I.png',
-        handle: '@rd',
-      },
-      content: {
-        text: 'Je pense , donc je suis',
-      },
-      created_at: 1461113959088,
-    },
-  ];
+
+  //Loading Tweets DB
+  const loadTweets = () => {
+    $.ajax({
+      url: '/tweets',
+      method: 'GET',
+      data: $(this).serialize(),
+    }).then((res) => {
+      renderTweets(res);
+    });
+  };
+
+  loadTweets();
 
   // Looping through database, passing and appending createTweetElement to HTML
   const renderTweets = (tweets) => {
@@ -34,15 +23,16 @@ $(() => {
 
   // Call back for RenderTweet to make Dynamic Data
   const createTweetElement = (data) => {
+    let info = data.user;
     let $tweet = `  
     <article id="tweet-card">
       <header>
         <div class="header">
           <div>
-            <img src="${data.user.avatars}" />
+            <img src="${info.avatars}" />
             <span class="user-identity">
-              <label id="display-name">${data.user.name}</label>
-              <label class="grayed-out">${data.user.handle}</label>
+              <label id="display-name">${info.name}</label>
+              <label class="grayed-out">${info.handle}</label>
             </span>
         </div>
       </header>
@@ -65,8 +55,6 @@ $(() => {
     return $tweet;
   };
 
-  renderTweets(data);
-
   // Ajax POST request from form to DB
   $('.form-class').on('submit', function (event) {
     event.preventDefault();
@@ -76,10 +64,43 @@ $(() => {
       data: $(this).serialize(),
     })
       .then(function () {
-        console.log('it worked');
+        console.log('Ajax Post Successful.');
       })
       .catch(function (error) {
         console.log(`There was an error`, error);
       });
   });
 });
+
+/* 
+
+   ///////////////
+  // Test Data //
+ ///////////////
+
+
+const data = [
+  {
+    user: {
+      name: 'Newton',
+      avatars: 'https://i.imgur.com/73hZDYK.png',
+      handle: '@SirIsaac',
+    },
+    content: {
+      text: 'If I have seen further it is by standing on the shoulders of giants',
+    },
+    created_at: 1461116232227,
+  },
+  {
+    user: {
+      name: 'Descartes',
+      avatars: 'https://i.imgur.com/nlhLi3I.png',
+      handle: '@rd',
+    },
+    content: {
+      text: 'Je pense , donc je suis',
+    },
+    created_at: 1461113959088,
+  },
+];
+*/
