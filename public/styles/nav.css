@@ -30,3 +30,11 @@
   display: flex;
   justify-content: center;
 }
+
+/* Tablet Media */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .navigation{
+    background-color: orange;
+    opacity: 40%;
+  }
+}
