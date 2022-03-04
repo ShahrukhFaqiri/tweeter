@@ -19,5 +19,6 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Screenshots
 
-![`Screenshot of tweet compose box`]()
-![`Screenshot of tweet compose box`]()
+![`Screenshot of Desktop View`](https://github.com/ShahrukhFaqiri/tweeter/blob/master/public/images/1.png)
+![`User friendly error handling`](https://github.com/ShahrukhFaqiri/tweeter/blob/master/public/images/2.png)
+![`Responsive Tablet View`](https://github.com/ShahrukhFaqiri/tweeter/blob/master/public/images/3.png)
