@@ -6,9 +6,7 @@ $(() => {
   $('.form-class').on('submit', function (event) {
     event.preventDefault();
     let formData = $(this).find('textarea').val();
-    console.log(`form data`, formData);
     let letCount = formData.length;
-    console.log(`Outside:`, letCount);
     if(letCount > 140){
       return false;
     }
