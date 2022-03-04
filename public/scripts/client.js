@@ -52,7 +52,6 @@ const loadTweets = () => {
 // Looping through database, passing and appending createTweetElement to HTML
 const renderTweets = (tweets) => {
   for (let tweet of tweets) {
-    // $(createTweetElement(tweet)).appendTo('.tweets');
     $('.tweets').prepend(createTweetElement(tweet));
   }
 };
